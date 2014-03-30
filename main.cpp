@@ -12,11 +12,15 @@ FEHMotor rMotor(FEHMotor::Motor1);
 ButtonBoard buttons( FEHIO::Bank3 );
 
 
-void ( *fPtr ) (float value);
-
-void setOperation(void ( *floatPtr ) (float value));
-
-void performOperation(float fValue);
+class Operation
+{
+public:
+    Operation();
+    void setOperation(void ( *floatPtr ) (float value));
+    void performOperation(float fValue);
+private:
+    void ( *fPtr ) (float value);
+};
 
 
 
@@ -32,9 +36,11 @@ int main(void)
     LCD.SetFontColor( FEHLCD::White );
 
 
-    setOperation(&DriveForTime);
+    Operation doStuff;
 
-    performOperation(3.0);
+    doStuff.setOperation(&DriveForTime);
+
+    doStuff.performOperation(3.0);
 
     //(*fPtr)(3.0);
 
@@ -43,16 +49,19 @@ int main(void)
 }
 
 
-
-void setOperation(void ( *floatPtr ) (float value))
+Operation::Operation()
 {
-    //THIS WORKS
+    fPtr;
+}
+
+void Operation::setOperation(void ( *floatPtr ) (float value))
+{
     fPtr = floatPtr;
 }
 
 
 
-void performOperation(float fValue)
+void Operation::performOperation(float fValue)
 {
     (*fPtr)(fValue);
 }
