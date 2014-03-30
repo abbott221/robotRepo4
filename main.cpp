@@ -27,6 +27,12 @@ private:
 
 void DriveForTime(float time);
 
+void TurnLeftForTime(float time);
+
+void TurnRightForTime(float time);
+
+void BackwardsForTime(float time);
+
 
 
 
@@ -35,14 +41,25 @@ int main(void)
     LCD.Clear( FEHLCD::Black );
     LCD.SetFontColor( FEHLCD::White );
 
+    Operation straight;
+    straight.setOperation(&DriveForTime);
 
-    Operation doStuff;
+    Operation left;
+    left.setOperation(&TurnLeftForTime);
 
-    doStuff.setOperation(&DriveForTime);
+    Operation right;
+    right.setOperation(&TurnRightForTime);
 
-    doStuff.performOperation(3.0);
+    Operation back;
+    back.setOperation(&BackwardsForTime);
 
-    //(*fPtr)(3.0);
+
+
+    straight.performOperation(1.0);
+    left.performOperation(1.0);
+    right.performOperation(1.0);
+    straight.performOperation(3.0);
+
 
 
     return 0;
@@ -74,13 +91,42 @@ void DriveForTime(float time)
     rMotor.SetPercent(80);
     lMotor.SetPercent(-1 * 80);
 
-    //Sleep(time);
-
     float startTime = TimeNow();
     float dTime = 0.0;
     while( dTime < time )
     {
-        //logDataStuffs();
+        dTime = TimeNow() - startTime;
+    }
+
+    rMotor.Stop();
+    lMotor.Stop();
+}
+
+void TurnLeftForTime(float time)
+{
+    rMotor.SetPercent(80);
+    lMotor.SetPercent(80);
+
+    float startTime = TimeNow();
+    float dTime = 0.0;
+    while( dTime < time)
+    {
+        dTime = TimeNow() - startTime;
+    }
+
+    rMotor.Stop();
+    lMotor.Stop();
+}
+
+void TurnRightForTime(float time)
+{
+    rMotor.SetPercent(-1 * 80);
+    lMotor.SetPercent(-1 * 80);
+
+    float startTime = TimeNow();
+    float dTime = 0.0;
+    while( dTime < time)
+    {
         dTime = TimeNow() - startTime;
     }
 
@@ -89,4 +135,20 @@ void DriveForTime(float time)
 }
 
 
+
+void BackwardsForTime(float time)
+{
+    rMotor.SetPercent(-1 * 80);
+    lMotor.SetPercent(80);
+
+    float startTime = TimeNow();
+    float dTime = 0.0;
+    while( dTime < time)
+    {
+        dTime = TimeNow() - startTime;
+    }
+
+    rMotor.Stop();
+    lMotor.Stop();
+}
 
