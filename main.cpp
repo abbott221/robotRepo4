@@ -65,6 +65,8 @@ int main(void)
     //movement presets start
 
     //later, determine dataType from dOp and overload the method?
+    int holder = 0;
+
     mTracker.add_fMovement(4, 1.0);
     mTracker.add_fMovement(8, 1.0);
     mTracker.add_fMovement(12, 1.0);

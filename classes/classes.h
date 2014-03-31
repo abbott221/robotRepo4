@@ -94,10 +94,10 @@ public:
     MovementTracker();
 
     //presets as operation, value
-    void add_iMovement(int dOp, int value);
-    void add_fMovement(int dOp, float value);
-    void add_dMovement(int dOp, double value);
-    void add_vMovement(int dOp); //void
+    int add_iMovement(int dOp, int value);
+    int add_fMovement(int dOp, float value);
+    int add_dMovement(int dOp, double value);
+    int add_vMovement(int dOp); //void
 
     //driveProcess as operation, value
 //    void perform_iMovement(int dOp);
@@ -111,6 +111,22 @@ private:
     int filled;
     int trackerSize;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

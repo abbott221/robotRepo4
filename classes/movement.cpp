@@ -126,28 +126,36 @@ MovementTracker::MovementTracker()
 
 
 
-void MovementTracker::add_iMovement(int dOp, int value)
+int MovementTracker::add_iMovement(int dOp, int value)
 {
     tracker[filled].set_iMovement( dOp, value );
     filled += 1;
+
+    return (filled - 1);
 }
 
-void MovementTracker::add_fMovement(int dOp, float value)
+int MovementTracker::add_fMovement(int dOp, float value)
 {
     tracker[filled].set_fMovement( dOp, value );
     filled += 1;
+
+    return (filled - 1);
 }
 
-void MovementTracker::add_dMovement(int dOp, double value)
+int MovementTracker::add_dMovement(int dOp, double value)
 {
     tracker[filled].set_dMovement( dOp, value );
     filled += 1;
+
+    return (filled - 1);
 }
 
-void MovementTracker::add_vMovement(int dOp)
+int MovementTracker::add_vMovement(int dOp)
 {
     tracker[filled].set_vMovement( dOp );
     filled += 1;
+
+    return (filled - 1);
 }
 
 
