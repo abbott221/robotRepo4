@@ -84,7 +84,10 @@ void ConfigureMenuCall();
 
 MovementTracker mTracker;
 
-OperationTracker opTracker(300);
+
+//ISSUE HERE MAY HAVE CAUSED INFINITE LOOP?
+//OperationTracker opTracker(300);
+OperationTracker opTracker(500);
 
 
 
@@ -154,11 +157,11 @@ int main(void)
 
 
 
-//    for (int i = 0; i < 144; i++)
-//    {
-//        mTracker.tracker[i].setMovement(0, 0.0);
-//        mTracker.tracker[i].setState(false);
-//    }
+    for (int i = 0; i < 144; i++)
+    {
+        mTracker.tracker[i].set_fMovement(0, 0.0);
+        mTracker.tracker[i].setState(false);
+    }
 
 
 
@@ -213,11 +216,6 @@ int main(void)
 
 
 
-
-    //theLoop();
-
-
-
     return 0;
 }
 
@@ -230,11 +228,6 @@ void MainMenuCall()
 
     mainChoice = mainMenu.UserInterface();
 
-
-
-
-    //int typeChoice;
-    //int moveChoice;
 
     int tempNum;
     int incrs[] = {25, 10, 1};
@@ -255,7 +248,7 @@ void MainMenuCall()
     else if (mainChoice == 1)
     {
         //driveProcess();
-        theLoop();
+        driveProcess();
     }
 
 
@@ -298,19 +291,7 @@ void MainMenuCall()
 
 
 
-
-
-
-
-
-
-
         //opSubMenusSetup();
-
-
-
-
-
 
 
 
@@ -321,13 +302,6 @@ void MainMenuCall()
 
         //TypeEnum checkMe = findDataTypeOfJeffID(opSubChoice);
         TypeEnum checkMe = opTracker.tracker[opSubChoice].getDataType();
-
-
-
-
-
-
-
 
 
 
