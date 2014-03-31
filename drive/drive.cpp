@@ -7,11 +7,24 @@
 
 void driveProcess()
 {
-    opTracker.tracker[0].performOperation(1.0);
-    opTracker.tracker[1].performOperation(1.0);
-    opTracker.tracker[2].performOperation(1.0);
-    opTracker.tracker[0].performOperation(3.0);
+    opTracker.tracker[4].performOperation(1.0);
+    opTracker.tracker[8].performOperation(1.0);
+    opTracker.tracker[12].performOperation(1.0);
+    opTracker.tracker[4].performOperation(3.0);
+
+    opTracker.tracker[4].performOperation(1.0);
+    opTracker.tracker[8].performOperation(1.0);
+    opTracker.tracker[12].performOperation(1.0);
+    opTracker.tracker[4].performOperation(3.0);
+
+    opTracker.tracker[4].performOperation(1.0);
+    opTracker.tracker[8].performOperation(1.0);
+    opTracker.tracker[12].performOperation(1.0);
+    opTracker.tracker[4].performOperation(3.0);
 }
+
+
+
 
 
 

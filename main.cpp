@@ -18,7 +18,7 @@ ButtonBoard buttons( FEHIO::Bank3 );
 
 
 
-OperationTracker opTracker(4);
+OperationTracker opTracker(30);
 
 
 
@@ -33,16 +33,16 @@ int main(void)
     //OperationTracker opTracker(4);
 
     //Operation straight;
-    opTracker.addOperation(&DriveForTime);
+    opTracker.addOperation( 4, &DriveForTime );
 
     //Operation left;
-    opTracker.addOperation(&TurnLeftForTime);
+    opTracker.addOperation( 8, &TurnLeftForTime );
 
     //Operation right;
-    opTracker.addOperation(&TurnRightForTime);
+    opTracker.addOperation( 12, &TurnRightForTime );
 
     //Operation back;
-    opTracker.addOperation(&BackwardsForTime);
+    opTracker.addOperation( 16, &BackwardsForTime );
 
 
 

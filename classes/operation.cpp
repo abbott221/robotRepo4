@@ -3,17 +3,22 @@
 #include "classes.h"
 
 
+
+//************************************************
+//*                                              *
+//*          BEGIN Operation CLASS               *
+//*                                              *
+//************************************************
+
 Operation::Operation()
 {
     fPtr;
 }
 
-void Operation::setOperation(void ( *floatPtr ) (float value))
+void Operation::setOperation( void ( *floatPtr ) (float value))
 {
     fPtr = floatPtr;
 }
-
-
 
 void Operation::performOperation(float fValue)
 {
@@ -26,19 +31,34 @@ void Operation::performOperation(float fValue)
 
 
 
-
+//************************************************
+//*                                              *
+//*       BEGIN OperationTracker CLASS           *
+//*                                              *
+//************************************************
 
 OperationTracker::OperationTracker(int size)
 {
-    filled = 0;
     trackerSize = size;
     tracker = new Operation[size];
 }
-void OperationTracker::addOperation( void ( *floatPtr ) (float value) )
+
+void OperationTracker::addOperation(int callID, void ( *floatPtr ) (float value) )
 {
-    //tricky spot
-    tracker[filled].setOperation( (*floatPtr) );
-    filled += 1;
+    tracker[callID].setOperation( (*floatPtr) );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

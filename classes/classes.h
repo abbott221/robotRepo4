@@ -23,7 +23,7 @@ class OperationTracker
 {
 public:
     OperationTracker(int size);
-    void addOperation(void ( *floatPtr ) (float value));
+    void addOperation(int callID, void ( *floatPtr ) (float value));
     //void addOperation(int arraySpot, void ( *floatPtr ) (float value));
     //void addOperation(Operation dOperation);
     //void performOperation(float fValue);
@@ -34,6 +34,34 @@ private:
     int filled;
     int trackerSize;
 };
+
+
+
+
+class Movement
+{
+public:
+    Movement();
+private:
+    //Operation
+};
+
+
+
+class MovementTracker
+{
+public:
+    //size is 144
+    MovementTracker();
+
+    Movement * tracker;
+
+private:
+    int trackerSize;
+};
+
+
+
 
 
 
