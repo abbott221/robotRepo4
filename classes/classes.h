@@ -69,10 +69,10 @@ public:
     void set_dMovement( int callID, double value);
     void set_vMovement( int callID);
 
-    void perform_iMovement(int dOp);
-    void perform_fMovement(int dOp);
-    void perform_dMovement(int dOp);
-    void perform_vMovement(int dOp);
+    void perform_iMovement();
+    void perform_fMovement();
+    void perform_dMovement();
+    void perform_vMovement();
 
 private:
     int operationCallID;
@@ -116,7 +116,7 @@ private:
 
 
 
-
+extern MovementTracker mTracker;
 extern OperationTracker opTracker;
 
 

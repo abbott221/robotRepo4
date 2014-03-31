@@ -7,25 +7,33 @@
 
 void driveProcess()
 {
-    opTracker.tracker[4].perform_fOperation(1.0);
-    opTracker.tracker[8].perform_fOperation(1.0);
-    opTracker.tracker[12].perform_fOperation(1.0);
-    opTracker.tracker[4].perform_fOperation(3.0);
-
-    opTracker.tracker[4].perform_fOperation(1.0);
-    opTracker.tracker[8].perform_fOperation(1.0);
-    opTracker.tracker[12].perform_fOperation(1.0);
-    opTracker.tracker[4].perform_fOperation(3.0);
-
-    opTracker.tracker[21].perform_iOperation(5);
-    opTracker.tracker[22].perform_fOperation(6.0);
-    opTracker.tracker[23].perform_dOperation(7.0);
-    opTracker.tracker[24].perform_vOperation();
 
 
+    TypeEnum tempType;
 
+    for (int i = 0; i < 144; i++)
+    {
+        tempType = mTracker.tracker[i].getDataType();
 
+        if (tempType == tInt)
+        {
+            mTracker.tracker[i].perform_iMovement();
+        }
+        else if (tempType == tFloat)
+        {
+            mTracker.tracker[i].perform_fMovement();
+        }
+        else if (tempType == tDouble)
+        {
+            mTracker.tracker[i].perform_dMovement();
+        }
+        else if (tempType == tVoid)
+        {
+            mTracker.tracker[i].perform_vMovement();
+        }
+    }
 
+    //AT END, POTENTIAL TO EXIT THE RUN AND REBOOT
 }
 
 

@@ -31,7 +31,7 @@ FEHBattery lolBattery (FEHIO::BATTERY_VOLTAGE);
 
 
 
-
+MovementTracker mTracker;
 OperationTracker opTracker(30);
 
 
@@ -55,6 +55,37 @@ int main(void)
     opTracker.add_fOperation( 22, &PrintFloat );
     opTracker.add_dOperation( 23, &PrintDouble );
     opTracker.add_vOperation( 24, &PrintVoid );
+
+
+
+
+
+
+
+    //movement presets start
+
+    //later, determine dataType from dOp and overload the method?
+    mTracker.add_fMovement(4, 1.0);
+    mTracker.add_fMovement(8, 1.0);
+    mTracker.add_fMovement(12, 1.0);
+    mTracker.add_fMovement(4, 3.0);
+
+    mTracker.add_fMovement(4, 1.0);
+    mTracker.add_fMovement(8, 1.0);
+    mTracker.add_fMovement(12, 1.0);
+    mTracker.add_fMovement(4, 3.0);
+
+    mTracker.add_iMovement(21, 5);
+    mTracker.add_fMovement(22, 6.0);
+    mTracker.add_dMovement(23, 7.0);
+    mTracker.add_vMovement(24);
+
+
+    //movement presets end
+
+
+
+
 
 
 

@@ -83,24 +83,24 @@ void Movement::set_vMovement( int callID)
 
 
 
-void Movement::perform_iMovement( int dOp )
+void Movement::perform_iMovement()
 {
-    opTracker.tracker[dOp].perform_iOperation(iValue);
+    opTracker.tracker[operationCallID].perform_iOperation(iValue);
 }
 
-void Movement::perform_fMovement( int dOp )
+void Movement::perform_fMovement()
 {
-    opTracker.tracker[dOp].perform_fOperation(fValue);
+    opTracker.tracker[operationCallID].perform_fOperation(fValue);
 }
 
-void Movement::perform_dMovement( int dOp )
+void Movement::perform_dMovement()
 {
-    opTracker.tracker[dOp].perform_dOperation(dValue);
+    opTracker.tracker[operationCallID].perform_dOperation(dValue);
 }
 
-void Movement::perform_vMovement( int dOp )
+void Movement::perform_vMovement()
 {
-    opTracker.tracker[dOp].perform_vOperation();
+    opTracker.tracker[operationCallID].perform_vOperation();
 }
 
 
