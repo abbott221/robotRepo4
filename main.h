@@ -12,6 +12,27 @@
 #include <FEHBattery.h>
 
 
+
+typedef enum
+{
+    tString = 0,
+    tInt,
+    tFloat,
+    tDouble,
+    tVoid
+} TypeEnum;
+
+typedef enum
+{
+    STRAIGHT = 0,
+    LEFT,
+    RIGHT,
+    BACKWARDS,
+    STOP
+} PMode;
+
+
+
 #include "drive/drive.h"
 
 
@@ -20,7 +41,20 @@
 
 extern FEHMotor lMotor;
 extern FEHMotor rMotor;
+
 extern ButtonBoard buttons;
+extern FEHEncoder  leftEncoder;
+extern FEHEncoder  rightEncoder;
+
+extern AnalogInputPin CDS;
+
+extern AnalogInputPin optoLeft;
+extern AnalogInputPin optoMid;
+extern AnalogInputPin optoRight;
+
+extern FEHWONKA TheRPS;
+extern FEHServo lolServo;
+extern FEHBattery lolBattery;
 
 
 

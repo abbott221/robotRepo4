@@ -1,16 +1,18 @@
 
-
 #include "classes.h"
 
 
 
-//************************************************
-//*                                              *
-//*          BEGIN Operation CLASS               *
-//*                                              *
-//************************************************
 
-Operation::Operation()
+
+
+//************************************************
+//*                                              *
+//*           BEGIN Movement CLASS               *
+//*                                              *
+//************************************************
+/*
+Movement::Movement()
 {
     iPtr;
     fPtr;
@@ -72,7 +74,7 @@ void Operation::perform_vOperation()
 
 //************************************************
 //*                                              *
-//*       BEGIN OperationTracker CLASS           *
+//*        BEGIN MovementTracker CLASS           *
 //*                                              *
 //************************************************
 
@@ -100,22 +102,10 @@ void OperationTracker::add_dOperation(int callID, void ( *doublePtr ) (double dV
     tracker[callID].set_dOperation( (*doublePtr) );
 }
 
-void OperationTracker::add_vOperation(int callID, void ( *voidPtr ) () )
+void OperationTracker::add_dOperation(int callID, void ( *voidPtr ) () )
 {
     tracker[callID].set_vOperation( (*voidPtr) );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**/
 

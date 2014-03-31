@@ -21,6 +21,16 @@ void BackwardsForTime(float time);
 
 
 
+void PrintInt(int value);
+
+void PrintFloat(float value);
+
+void PrintDouble(double value);
+
+void PrintVoid();
+
+
+
 
 
 #endif // DRIVE_H
