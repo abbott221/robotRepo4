@@ -60,6 +60,7 @@ void operationMenuSetup()
     operationMenu.addOption("  Line Followers");
     operationMenu.addOption("  Servo/Settings");
     operationMenu.addOption("  RPS real");
+    operationMenu.addOption("  RPS real turn");
 
     /*
     typeMenu.addOption("  Time: Straight");

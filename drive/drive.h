@@ -56,6 +56,8 @@ void DisplayLightValue();
 void FlyOverLightValue(double time);
 void LightDecisionTurn(double distance);
 //void SetCustomAction(int action);
+void PushButton(); //METHOD 26
+void Micro(double time); //METHOD 27
 
 //REAL RPS
 void MoveToRealX(double givenX);

@@ -142,6 +142,37 @@ void SetCustomAction(int action)
 */
 
 
+// METHOD 26
+void PushButton(){
+    int timesPushed = TheRPS.OvenPressed();
+    int toPush = TheRPS.Oven();
+    while(timesPushed < toPush){
+        EncBackward(1.00);
+        EncForward(1.00);
+        timesPushed = TheRPS.OvenPressed();
+    }
+}
+
+// METHOD 27
+void Micro(double time){
+
+    double startTime = TimeNow();
+    double dTime = 0.0;
+
+    while(dTime < time){
+
+        EncBackward(.1);
+        if(Micro1.Value() && Micro2.Value()){
+            break;
+        }
+
+
+        logDataStuffs();
+        dTime = TimeNow() - startTime;
+    }
+    rMotor.Stop();
+    lMotor.Stop();
+}
 
 
 

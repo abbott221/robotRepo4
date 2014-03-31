@@ -16,6 +16,9 @@ FEHEncoder  rightEncoder( FEHIO::P0_1);
 
 AnalogInputPin CDS(FEHIO::P0_7);
 
+DigitalInputPin Micro1(FEHIO::P1_0);
+DigitalInputPin Micro2(FEHIO::P1_1);
+
 AnalogInputPin optoLeft(FEHIO::P2_0);
 AnalogInputPin optoMid(FEHIO::P2_2);
 AnalogInputPin optoRight(FEHIO::P2_4);
@@ -23,6 +26,8 @@ AnalogInputPin optoRight(FEHIO::P2_4);
 FEHWONKA TheRPS;
 FEHServo lolServo(FEHServo::Servo0);
 FEHBattery lolBattery (FEHIO::BATTERY_VOLTAGE);
+
+RPScleaner cleaner;
 
 //======================================
 
@@ -118,6 +123,10 @@ Menu opSubTimeMenu;
 Menu opSubEncMenu;
 Menu opSubLineMenu;
 
+Menu opSubGeneralMenu;
+Menu opSubRPSRealMenu;
+Menu opSubRPSRealTurnMenu;
+
 
 // dynamic menus
 
@@ -141,6 +150,81 @@ int main(void)
     opSubTimeMenu.addOption("  Time: Right");
     opTracker.add_fOperation( 3, &BackwardsForTime );
     opSubTimeMenu.addOption("  Time: Backwards");
+
+    opTracker.add_dOperation( 4, &EncForward );
+    opSubEncMenu.addOption("  Enc: Straight");
+    opTracker.add_dOperation( 5, &EncLeft );
+    opSubEncMenu.addOption("  Enc: Left");
+    opTracker.add_dOperation( 6, &EncRight );
+    opSubEncMenu.addOption("  Enc: Right");
+    opTracker.add_dOperation( 7, &EncBackward );
+    opSubEncMenu.addOption("  Enc: Backward");
+
+    opTracker.add_dOperation( 12, &ChangeOptoThreshold );
+    opSubLineMenu.addOption("  Change Opto Thresh");
+    opTracker.add_dOperation( 9, &FollowBlackLine );
+    opSubLineMenu.addOption("  Follow Black Line");
+    opTracker.add_dOperation( 10, &FollowLightLine );
+    opSubLineMenu.addOption("  Follow Light Line");
+    opTracker.add_dOperation( 16, &unFollowBlackLine );
+    opSubLineMenu.addOption("  unFollow Black Line");
+    opTracker.add_dOperation( 17, &unFollowLightLine );
+    opSubLineMenu.addOption("  unFollow Light Line");
+    //more line
+    opTracker.add_vOperation( 20, &GetOptoThresh );
+    opSubLineMenu.addOption("  get opto thresh");
+    opTracker.add_dOperation( 21, &BlackLineFollow );
+    opSubLineMenu.addOption("  black line follow");
+    opTracker.add_dOperation( 22, &YellowLineFollow );
+    opSubLineMenu.addOption("  yellow line follow");
+    opTracker.add_dOperation( 23, &JeffBlackLine );
+    opSubLineMenu.addOption("  jeff black line");
+    opTracker.add_dOperation( 24, &JeffLightLine );
+    opSubLineMenu.addOption("  jeff light line");
+
+
+    //GENERAL
+    opTracker.add_iOperation( 8, &SetServoDegree );
+    opSubGeneralMenu.addOption("  set servo degree");
+    opTracker.add_vOperation( 13, &DisplayLightValue );
+    opSubGeneralMenu.addOption("  display light value");
+    opTracker.add_dOperation( 14, &FlyOverLightValue );
+    opSubGeneralMenu.addOption("  fly over light value");
+    opTracker.add_dOperation( 19, &LightDecisionTurn );
+    opSubGeneralMenu.addOption("  light decision turn");
+    opTracker.add_vOperation( 26, &PushButton );
+    opSubGeneralMenu.addOption("  Push Button");
+    opTracker.add_dOperation( 27, &Micro );
+    opSubGeneralMenu.addOption("  Micro");
+
+
+    opTracker.add_dOperation( 50, &MoveToRealX );
+    opSubRPSRealMenu.addOption("  light decision turn");
+    opTracker.add_dOperation( 51, &MoveToRealY );
+    opSubRPSRealMenu.addOption("  light decision turn");
+
+
+    opTracker.add_vOperation( 60, &TurnLeftPast180 );
+    opSubRPSRealTurnMenu.addOption("  Left past 180");
+    opTracker.add_vOperation( 61, &TurnRightPast0 );
+    opSubRPSRealTurnMenu.addOption("  Right past 0");
+    opTracker.add_dOperation( 62, &TurnLeftToAngle );
+    opSubRPSRealTurnMenu.addOption("  Left to angle");
+    opTracker.add_dOperation( 63, &TurnRightToAngle );
+    opSubRPSRealTurnMenu.addOption("  right to angle");
+    opTracker.add_dOperation( 64, &UnsafeTurnToAngle );
+    opSubRPSRealTurnMenu.addOption("  unsafe turn to angle");
+    opTracker.add_dOperation( 80, &RelativeTurnLeft );
+    opSubRPSRealTurnMenu.addOption("  Relative Left");
+    opTracker.add_dOperation( 81, &RelativeTurnRight );
+    opSubRPSRealTurnMenu.addOption("  Relative Right");
+
+    //opSubGeneralMenu;
+    //opSubRPSRealMenu;
+    //opSubRPSRealTurnMenu;
+
+
+
 
     opTracker.add_iOperation( 301, &PrintInt );
     opTracker.add_fOperation( 302, &PrintFloat );
@@ -287,6 +371,22 @@ void MainMenuCall()
         {
             opSubChoice = opSubLineMenu.UserInterface();
         }
+
+
+        else if (operationChoice == 4)
+        {
+            opSubChoice = opSubGeneralMenu.UserInterface();
+        }
+        else if (operationChoice == 5)
+        {
+            opSubChoice = opSubRPSRealMenu.UserInterface();
+        }
+        else if (operationChoice == 6)
+        {
+            opSubChoice = opSubRPSRealTurnMenu.UserInterface();
+        }
+
+
 
 
 

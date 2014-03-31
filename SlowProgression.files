@@ -21,3 +21,4 @@ drive/3_driveLine.cpp
 drive/4_driveGeneral.cpp
 drive/5_driveRealRPS.cpp
 drive/6_driveRealRPSTurn.cpp
+classes/RPScleaning.cpp

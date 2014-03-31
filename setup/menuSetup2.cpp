@@ -76,6 +76,10 @@ void opSubMenusSetup()
     //opSubLineMenu = new Menu;
     opSubLineMenu.setSubOpMenu(true);
 
+    opSubGeneralMenu.setSubOpMenu(true);
+    opSubRPSRealMenu.setSubOpMenu(true);
+    opSubRPSRealTurnMenu.setSubOpMenu(true);
+
 }
 
 

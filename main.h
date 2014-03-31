@@ -105,6 +105,9 @@ extern FEHEncoder  rightEncoder;
 
 extern AnalogInputPin CDS;
 
+extern DigitalInputPin Micro1;
+extern DigitalInputPin Micro2;
+
 extern AnalogInputPin optoLeft;
 extern AnalogInputPin optoMid;
 extern AnalogInputPin optoRight;

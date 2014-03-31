@@ -294,6 +294,10 @@ extern Menu opSubTimeMenu;
 extern Menu opSubEncMenu;
 extern Menu opSubLineMenu;
 
+extern Menu opSubGeneralMenu;
+extern Menu opSubRPSRealMenu;
+extern Menu opSubRPSRealTurnMenu;
+
 
 
 extern int moveChoice;
