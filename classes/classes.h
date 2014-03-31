@@ -57,6 +57,23 @@ class Movement
 {
 public:
     Movement();
+
+    int getIntValue();
+    float getFloatValue();
+    double getDoubleValue();
+
+    TypeEnum getDataType();
+
+    void set_iMovement( int callID, int value);
+    void set_fMovement( int callID, float value);
+    void set_dMovement( int callID, double value);
+    void set_vMovement( int callID);
+
+    void perform_iMovement(int dOp);
+    void perform_fMovement(int dOp);
+    void perform_dMovement(int dOp);
+    void perform_vMovement(int dOp);
+
 private:
     int operationCallID;
 
@@ -76,14 +93,22 @@ public:
     //size is 144
     MovementTracker();
 
-    int add_iMovement(int dOp, int value);
-    int add_fMovement(int dOp, float value);
-    int add_dMovement(int dOp, double value);
-    int add_vMovement(int dOp); //void
+    //presets as operation, value
+    void add_iMovement(int dOp, int value);
+    void add_fMovement(int dOp, float value);
+    void add_dMovement(int dOp, double value);
+    void add_vMovement(int dOp); //void
+
+    //driveProcess as operation, value
+//    void perform_iMovement(int dOp);
+//    void perform_fMovement(int dOp);
+//    void perform_dMovement(int dOp);
+//    void perform_vMovement(int dOp);
 
     Movement * tracker;
 
 private:
+    int filled;
     int trackerSize;
 };
 

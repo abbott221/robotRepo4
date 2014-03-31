@@ -11,60 +11,98 @@
 //*           BEGIN Movement CLASS               *
 //*                                              *
 //************************************************
-/*
+
 Movement::Movement()
 {
-    iPtr;
-    fPtr;
-    dPtr;
-    vPtr;
+    operationCallID = 0;
+
+    iValue = 0;
+    fValue = 0;
+    dValue = 0;
+
+    dataType = tVoid;
 }
 
 
 
 
-void Operation::set_iOperation( void ( *intPtr ) (int iValue))
+int Movement::getIntValue()
 {
-    iPtr = intPtr;
+    return iValue;
 }
 
-void Operation::set_fOperation( void ( *floatPtr ) (float fValue))
+float Movement::getFloatValue()
 {
-    fPtr = floatPtr;
+    return fValue;
 }
 
-void Operation::set_dOperation( void ( *doublePtr ) (double dValue))
+double Movement::getDoubleValue()
 {
-    dPtr = doublePtr;
+    return dValue;
 }
 
-void Operation::set_vOperation( void ( *voidPtr ) ())
+
+
+
+TypeEnum Movement::getDataType()
 {
-    vPtr = voidPtr;
+    return dataType;
 }
 
 
 
 
-void Operation::perform_iOperation(int iValue)
+void Movement::set_iMovement( int callID, int value)
 {
-    (*iPtr)(iValue);
+    operationCallID = callID;
+    iValue = value;
+    dataType = tInt;
 }
 
-void Operation::perform_fOperation(float fValue)
+void Movement::set_fMovement( int callID, float value)
 {
-    (*fPtr)(fValue);
+    operationCallID = callID;
+    fValue = value;
+    dataType = tFloat;
 }
 
-void Operation::perform_dOperation(double dValue)
+void Movement::set_dMovement( int callID, double value)
 {
-    (*dPtr)(dValue);
+    operationCallID = callID;
+    dValue = value;
+    dataType = tDouble;
 }
 
-void Operation::perform_vOperation()
+void Movement::set_vMovement( int callID)
 {
-    (*vPtr)();
+    operationCallID = callID;
+    dataType = tVoid;
 }
+
+
+
+
+
+void Movement::perform_iMovement( int dOp )
+{
+    opTracker.tracker[dOp].perform_iOperation(iValue);
+}
+
+void Movement::perform_fMovement( int dOp )
+{
+    opTracker.tracker[dOp].perform_fOperation(fValue);
+}
+
+void Movement::perform_dMovement( int dOp )
+{
+    opTracker.tracker[dOp].perform_dOperation(dValue);
+}
+
+void Movement::perform_vMovement( int dOp )
+{
+    opTracker.tracker[dOp].perform_vOperation();
+}
+
 
 
 
@@ -78,34 +116,59 @@ void Operation::perform_vOperation()
 //*                                              *
 //************************************************
 
-OperationTracker::OperationTracker(int size)
+MovementTracker::MovementTracker()
 {
-    trackerSize = size;
-    tracker = new Operation[size];
+    filled = 0;
+    trackerSize = 144;
+    tracker = new Movement[144];
 }
 
 
 
 
-void OperationTracker::add_iOperation(int callID, void ( *intPtr ) (int iValue) )
+void MovementTracker::add_iMovement(int dOp, int value)
 {
-    tracker[callID].set_iOperation( (*intPtr) );
+    tracker[filled].set_iMovement( dOp, value );
+    filled += 1;
 }
 
-void OperationTracker::add_fOperation(int callID, void ( *floatPtr ) (float fValue) )
+void MovementTracker::add_fMovement(int dOp, float value)
 {
-    tracker[callID].set_fOperation( (*floatPtr) );
+    tracker[filled].set_fMovement( dOp, value );
+    filled += 1;
 }
 
-void OperationTracker::add_dOperation(int callID, void ( *doublePtr ) (double dValue) )
+void MovementTracker::add_dMovement(int dOp, double value)
 {
-    tracker[callID].set_dOperation( (*doublePtr) );
+    tracker[filled].set_dMovement( dOp, value );
+    filled += 1;
 }
 
-void OperationTracker::add_dOperation(int callID, void ( *voidPtr ) () )
+void MovementTracker::add_vMovement(int dOp)
 {
-    tracker[callID].set_vOperation( (*voidPtr) );
+    tracker[filled].set_vMovement( dOp );
+    filled += 1;
 }
 
-/**/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
