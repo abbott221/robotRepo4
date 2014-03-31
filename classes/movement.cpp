@@ -21,10 +21,15 @@ Movement::Movement()
     dValue = 0;
 
     dataType = tVoid;
+
+    movementState = false;
 }
 
 
-
+int Movement::getOperation()
+{
+    return operationCallID;
+}
 
 int Movement::getIntValue()
 {
@@ -50,6 +55,12 @@ TypeEnum Movement::getDataType()
 }
 
 
+bool Movement::getState()
+{
+    return movementState;
+}
+
+
 
 
 void Movement::set_iMovement( int callID, int value)
@@ -57,6 +68,8 @@ void Movement::set_iMovement( int callID, int value)
     operationCallID = callID;
     iValue = value;
     dataType = tInt;
+
+    movementState = true;
 }
 
 void Movement::set_fMovement( int callID, float value)
@@ -64,6 +77,8 @@ void Movement::set_fMovement( int callID, float value)
     operationCallID = callID;
     fValue = value;
     dataType = tFloat;
+
+    movementState = true;
 }
 
 void Movement::set_dMovement( int callID, double value)
@@ -71,14 +86,46 @@ void Movement::set_dMovement( int callID, double value)
     operationCallID = callID;
     dValue = value;
     dataType = tDouble;
+
+    movementState = true;
 }
 
 void Movement::set_vMovement( int callID)
 {
     operationCallID = callID;
     dataType = tVoid;
+
+    movementState = true;
 }
 
+
+
+void Movement::setMovement( Movement dMovement )
+{
+    operationCallID = dMovement.getOperation();
+
+    iValue = dMovement.getIntValue();
+    fValue = dMovement.getFloatValue();
+    dValue = dMovement.getDoubleValue();
+
+    dataType = dMovement.getDataType();
+
+    movementState = dMovement.getState();
+}
+
+
+
+void Movement::setState(bool dState)
+{
+    if (dState == true)
+    {
+        movementState = true;
+    }
+    else
+    {
+        movementState = false;
+    }
+}
 
 
 
