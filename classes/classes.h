@@ -17,16 +17,21 @@ public:
     void set_dOperation(void ( *doublePtr ) (double dValue));
     void set_vOperation(void ( *voidPtr ) ());
 
+    TypeEnum getDataType();
+
     void perform_iOperation(int iValue);
     void perform_fOperation(float fValue);
     void perform_dOperation(double dValue);
     void perform_vOperation();
+
 
 private:
     void ( *iPtr ) (int iValue);
     void ( *fPtr ) (float fValue);
     void ( *dPtr ) (double dValue);
     void ( *vPtr ) ();
+
+    TypeEnum dataType;
 };
 
 
@@ -42,6 +47,8 @@ public:
     //void addOperation(int arraySpot, void ( *floatPtr ) (float value));
     //void addOperation(Operation dOperation);
     //void performOperation(float fValue);
+
+    int getTrackerSize();
 
     Operation * tracker;
 

@@ -9,3 +9,9 @@ classes/operation.cpp
 classes/classes.h
 classes/movement.cpp
 classes/menu.cpp
+
+setup/menuSetup.h
+setup/menuSetup1.cpp
+setup/menuSetup2.cpp
+other.h
+other.cpp

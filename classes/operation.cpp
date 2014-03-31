@@ -16,6 +16,8 @@ Operation::Operation()
     fPtr;
     dPtr;
     vPtr;
+
+    dataType = tVoid;
 }
 
 
@@ -24,21 +26,37 @@ Operation::Operation()
 void Operation::set_iOperation( void ( *intPtr ) (int iValue))
 {
     iPtr = intPtr;
+
+    dataType = tInt;
 }
 
 void Operation::set_fOperation( void ( *floatPtr ) (float fValue))
 {
     fPtr = floatPtr;
+
+    dataType = tFloat;
 }
 
 void Operation::set_dOperation( void ( *doublePtr ) (double dValue))
 {
     dPtr = doublePtr;
+
+    dataType = tDouble;
 }
 
 void Operation::set_vOperation( void ( *voidPtr ) ())
 {
     vPtr = voidPtr;
+
+    dataType = tVoid;
+}
+
+
+
+
+TypeEnum Operation::getDataType()
+{
+    return dataType;
 }
 
 
@@ -104,6 +122,14 @@ void OperationTracker::add_vOperation(int callID, void ( *voidPtr ) () )
 {
     tracker[callID].set_vOperation( (*voidPtr) );
 }
+
+
+int OperationTracker::getTrackerSize()
+{
+    return trackerSize;
+}
+
+
 
 
 

@@ -33,10 +33,18 @@ typedef enum
 
 
 
+
+
 #include "drive/drive.h"
 
-
 #include "classes/classes.h"
+
+#include "setup/menuSetup.h"
+
+#include "other.h"
+
+
+
 
 
 extern FEHMotor lMotor;
