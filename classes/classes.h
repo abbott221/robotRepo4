@@ -99,6 +99,9 @@ private:
     TypeEnum dataType;
 
     bool movementState;
+
+    moveInfoSmall expectedStart;
+    moveInfoSmall expectedEnd;
 };
 
 
@@ -183,6 +186,7 @@ class Menu
         void addOption(Movement dMovement);
 
         void setSubOpMenu(bool isSubOpMenu);
+        bool getSubOpMenu();
 
         void setSelectionSize(int dSize);
 

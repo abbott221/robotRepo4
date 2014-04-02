@@ -54,7 +54,13 @@ void option::setOption(int dLine, Movement dOptionMove)
 {
     dataType = dOptionMove.getDataType();
     line = dLine;
+
+    //fixed aliasing problem?
     optionMovement.setMovement(dOptionMove);
+
+    //fixed update option number?
+    optionJeffID = dOptionMove.getOperation();
+
 }
 
 void option::setOption(option dOption)
@@ -62,7 +68,7 @@ void option::setOption(option dOption)
     dataType = dOption.getDataType();
     line = dOption.getLine();
     name = dOption.getName();
-    optionMovement = dOption.getMovement();
+    optionMovement.setMovement(dOption.getMovement());
     optionState = dOption.getState();
 
     optionJeffID = dOption.getJeffID();
@@ -125,6 +131,8 @@ bool option::getState()
 void option::display()
 {
     TypeEnum tempDataType = optionMovement.getDataType();
+
+    //or use option.dataType?
 
 
     if (dataType == tString)
@@ -206,6 +214,8 @@ void Menu::addOption(const char *dLine)
     }
 }
 
+
+
 void Menu::addOption(const char *dLine, int jeff)
 {
     //a temporary holder of the data
@@ -286,6 +296,12 @@ void Menu::addOption(Movement dMovement)
 void Menu::setSubOpMenu(bool isSubOpMenu)
 {
     subOpMenu = isSubOpMenu;
+}
+
+
+bool Menu::getSubOpMenu()
+{
+    return subOpMenu;
 }
 
 

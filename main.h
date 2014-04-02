@@ -20,6 +20,11 @@ typedef enum
     tFloat,
     tDouble,
     tVoid
+
+    //opInt,
+    //opFloat,
+    //opDouble,
+    //opVoid
 } TypeEnum;
 
 typedef enum
@@ -30,6 +35,34 @@ typedef enum
     BACKWARDS,
     STOP
 } PMode;
+
+
+
+struct moveInfoSmall
+{
+    float infoX;
+    float infoY;
+    float infoHead;
+};
+
+struct moveInfo
+{
+    float theoryStartX;
+    float theoryStartY;
+    float theoryStartHead;
+
+    float theoryEndX;
+    float theoryEndY;
+    float theoryEndHead;
+
+    float expStartX;
+    float expStartY;
+    float expStartHead;
+
+    float expEndX;
+    float expEndY;
+    float expEndHead;
+};
 
 
 

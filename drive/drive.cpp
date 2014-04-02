@@ -290,25 +290,25 @@ void theLoop()
 
     TypeEnum tempType;
 
-    for (int i = 0; i < 144; i++)
+    for (currentMove = 0; currentMove < 144; currentMove++)
     {
-        tempType = mTracker.tracker[i].getDataType();
+        tempType = mTracker.tracker[currentMove].getDataType();
 
         if (tempType == tInt)
         {
-            mTracker.tracker[i].perform_iMovement();
+            mTracker.tracker[currentMove].perform_iMovement();
         }
         else if (tempType == tFloat)
         {
-            mTracker.tracker[i].perform_fMovement();
+            mTracker.tracker[currentMove].perform_fMovement();
         }
         else if (tempType == tDouble)
         {
-            mTracker.tracker[i].perform_dMovement();
+            mTracker.tracker[currentMove].perform_dMovement();
         }
         else if (tempType == tVoid)
         {
-            mTracker.tracker[i].perform_vMovement();
+            mTracker.tracker[currentMove].perform_vMovement();
         }
     }
 

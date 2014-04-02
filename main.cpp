@@ -143,81 +143,81 @@ int main(void)
     //OperationTracker opTracker(4);
 
     opTracker.add_fOperation( 0, &DriveForTime );
-    opSubTimeMenu.addOption("  Time: Straight");
+    opSubTimeMenu.addOption("  Time: Straight", 0);
     opTracker.add_fOperation( 1, &TurnLeftForTime );
-    opSubTimeMenu.addOption("  Time: Left");
+    opSubTimeMenu.addOption("  Time: Left", 1);
     opTracker.add_fOperation( 2, &TurnRightForTime );
-    opSubTimeMenu.addOption("  Time: Right");
+    opSubTimeMenu.addOption("  Time: Right", 2);
     opTracker.add_fOperation( 3, &BackwardsForTime );
-    opSubTimeMenu.addOption("  Time: Backwards");
+    opSubTimeMenu.addOption("  Time: Backwards", 3);
 
     opTracker.add_dOperation( 4, &EncForward );
-    opSubEncMenu.addOption("  Enc: Straight");
+    opSubEncMenu.addOption("  Enc: Straight", 4);
     opTracker.add_dOperation( 5, &EncLeft );
-    opSubEncMenu.addOption("  Enc: Left");
+    opSubEncMenu.addOption("  Enc: Left", 5);
     opTracker.add_dOperation( 6, &EncRight );
-    opSubEncMenu.addOption("  Enc: Right");
+    opSubEncMenu.addOption("  Enc: Right", 6);
     opTracker.add_dOperation( 7, &EncBackward );
-    opSubEncMenu.addOption("  Enc: Backward");
+    opSubEncMenu.addOption("  Enc: Backward", 7);
 
     opTracker.add_dOperation( 12, &ChangeOptoThreshold );
-    opSubLineMenu.addOption("  Change Opto Thresh");
+    opSubLineMenu.addOption("  Change Opto Thresh", 12);
     opTracker.add_dOperation( 9, &FollowBlackLine );
-    opSubLineMenu.addOption("  Follow Black Line");
+    opSubLineMenu.addOption("  Follow Black Line", 9);
     opTracker.add_dOperation( 10, &FollowLightLine );
-    opSubLineMenu.addOption("  Follow Light Line");
+    opSubLineMenu.addOption("  Follow Light Line", 10);
     opTracker.add_dOperation( 16, &unFollowBlackLine );
-    opSubLineMenu.addOption("  unFollow Black Line");
+    opSubLineMenu.addOption("  unFollow Black Line", 16);
     opTracker.add_dOperation( 17, &unFollowLightLine );
-    opSubLineMenu.addOption("  unFollow Light Line");
+    opSubLineMenu.addOption("  unFollow Light Line", 17);
     //more line
     opTracker.add_vOperation( 20, &GetOptoThresh );
-    opSubLineMenu.addOption("  get opto thresh");
+    opSubLineMenu.addOption("  get opto thresh", 20);
     opTracker.add_dOperation( 21, &BlackLineFollow );
-    opSubLineMenu.addOption("  black line follow");
+    opSubLineMenu.addOption("  black line follow", 21);
     opTracker.add_dOperation( 22, &YellowLineFollow );
-    opSubLineMenu.addOption("  yellow line follow");
+    opSubLineMenu.addOption("  yellow line follow", 22);
     opTracker.add_dOperation( 23, &JeffBlackLine );
-    opSubLineMenu.addOption("  jeff black line");
+    opSubLineMenu.addOption("  jeff black line", 23);
     opTracker.add_dOperation( 24, &JeffLightLine );
-    opSubLineMenu.addOption("  jeff light line");
+    opSubLineMenu.addOption("  jeff light line", 24);
 
 
     //GENERAL
     opTracker.add_iOperation( 8, &SetServoDegree );
-    opSubGeneralMenu.addOption("  set servo degree");
+    opSubGeneralMenu.addOption("  set servo degree", 8);
     opTracker.add_vOperation( 13, &DisplayLightValue );
-    opSubGeneralMenu.addOption("  display light value");
+    opSubGeneralMenu.addOption("  display light value", 13);
     opTracker.add_dOperation( 14, &FlyOverLightValue );
-    opSubGeneralMenu.addOption("  fly over light value");
+    opSubGeneralMenu.addOption("  fly over light value", 14);
     opTracker.add_dOperation( 19, &LightDecisionTurn );
-    opSubGeneralMenu.addOption("  light decision turn");
+    opSubGeneralMenu.addOption("  light decision turn", 19);
     opTracker.add_vOperation( 26, &PushButton );
-    opSubGeneralMenu.addOption("  Push Button");
+    opSubGeneralMenu.addOption("  Push Button", 26);
     opTracker.add_dOperation( 27, &Micro );
-    opSubGeneralMenu.addOption("  Micro");
+    opSubGeneralMenu.addOption("  Micro", 27);
 
 
     opTracker.add_dOperation( 50, &MoveToRealX );
-    opSubRPSRealMenu.addOption("  light decision turn");
+    opSubRPSRealMenu.addOption("  Move to real X", 50);
     opTracker.add_dOperation( 51, &MoveToRealY );
-    opSubRPSRealMenu.addOption("  light decision turn");
+    opSubRPSRealMenu.addOption("  move to real Y", 51);
 
 
     opTracker.add_vOperation( 60, &TurnLeftPast180 );
-    opSubRPSRealTurnMenu.addOption("  Left past 180");
+    opSubRPSRealTurnMenu.addOption("  Left past 180", 60);
     opTracker.add_vOperation( 61, &TurnRightPast0 );
-    opSubRPSRealTurnMenu.addOption("  Right past 0");
+    opSubRPSRealTurnMenu.addOption("  Right past 0", 61);
     opTracker.add_dOperation( 62, &TurnLeftToAngle );
-    opSubRPSRealTurnMenu.addOption("  Left to angle");
+    opSubRPSRealTurnMenu.addOption("  Left to angle", 62);
     opTracker.add_dOperation( 63, &TurnRightToAngle );
-    opSubRPSRealTurnMenu.addOption("  right to angle");
+    opSubRPSRealTurnMenu.addOption("  right to angle", 63);
     opTracker.add_dOperation( 64, &UnsafeTurnToAngle );
-    opSubRPSRealTurnMenu.addOption("  unsafe turn to angle");
+    opSubRPSRealTurnMenu.addOption("  unsafe turn to angle", 64);
     opTracker.add_dOperation( 80, &RelativeTurnLeft );
-    opSubRPSRealTurnMenu.addOption("  Relative Left");
+    opSubRPSRealTurnMenu.addOption("  Relative Left", 80);
     opTracker.add_dOperation( 81, &RelativeTurnRight );
-    opSubRPSRealTurnMenu.addOption("  Relative Right");
+    opSubRPSRealTurnMenu.addOption("  Relative Right", 81);
 
     //opSubGeneralMenu;
     //opSubRPSRealMenu;
@@ -349,6 +349,9 @@ void MainMenuCall()
         moveChoice = moveChoice + (12 * pageChoice);
 
 
+        //insert menu sets here
+        opSubMenusSetup();
+
 
         //USER INTERFACE: MOVEMENT TYPE SELECTION
         operationChoice = operationMenu.UserInterface();
@@ -385,6 +388,57 @@ void MainMenuCall()
         {
             opSubChoice = opSubRPSRealTurnMenu.UserInterface();
         }
+
+
+
+
+        //@DEBUGGING
+        //I WAS RIGHT!!!
+        /*
+        if (opSubTimeMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        else if (opSubEncMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        else if (opSubLineMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        else if (opSubGeneralMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        else if (opSubRPSRealMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        else if (opSubRPSRealTurnMenu.getSubOpMenu() == false)
+        {
+            while (true)
+            {
+                LCD.WriteLine("ERROR DIAGNOSED");
+            }
+        }
+        /**/
+
 
 
 
@@ -437,7 +491,7 @@ void MainMenuCall()
         {
             double tempDoubleValue = mTracker.tracker[moveChoice].getDoubleValue();
 
-            double incrs[] = {1.0, 0.1, 0.01};
+            double incrs[] = {2.0, 0.1, 0.01};
 
             tempDoubleValue = SetDouble(tempDoubleValue, incrs, 3);
 
@@ -447,6 +501,9 @@ void MainMenuCall()
         {
             mTracker.tracker[moveChoice].set_vMovement(opSubChoice);
         }
+
+
+
     }
 
 
